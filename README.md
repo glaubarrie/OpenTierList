@@ -1,6 +1,6 @@
 # OpenTierList
-Open-source tool for custom tier list creation.
-Comprehensive customisation and flexibility.
+Comprehensive open-source tool for custom tier list creation.
+
 
 **🚀Features:**
 - custom tiers (name & color)
