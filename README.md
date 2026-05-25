@@ -10,3 +10,6 @@ _Comprehensive open-source tool for custom tier list creation._
 
 **🔐Privacy:**
 - runs fully locally on your PC - no Internet required
+
+**🫂Credits**
+- https://www.electronjs.org/
