@@ -8,40 +8,61 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="toolbar" class="toolbar-modern">
+  <div id="container" class="container">
+    <div id="toolbar" class="toolbar-modern">
     <div class="toolbar-left">
-      <button id="addRowBtn" type="button" class="tool-btn" title="Add Row">
-        <span class="icon">➕</span>
-        <span class="label">Add Row</span>
-      </button>
-
-      <label class="tool-btn input-btn">
-        <span class="icon">✏️</span>
-        <input id="newRowLabel" placeholder="Row label" type="text" />
-      </label>
-
-      <label class="tool-btn color-btn" title="Row color">
-        <span class="icon">🎨</span>
-        <input type="color" id="newRowColor" value="#333333" title="Row color" />
-      </label>
+      <div class="add-row-group">
+        <button id="addRowBtn" type="button" class="tool-btn" title="Add Row">
+          <span class="icon">➕</span>
+          <span class="label">Add Row</span>
+        </button>
+        <div id="addRowMenu" class="add-row-menu" role="menu" aria-hidden="true">
+          <input id="menuRowLabel" type="text" placeholder="Row label" class="add-row-input">
+          <div class="add-row-color-wrapper">
+            <label>Color:</label>
+            <input id="menuRowColor" type="color" value="#333333" class="add-row-color">
+          </div>
+          <button id="confirmRowBtn" type="button" class="add-row-confirm">Create Row</button>
+        </div>
+      </div>
 
       <div class="toolbar-separator" aria-hidden="true"></div>
 
-      <label class="tool-btn" title="Add Images">
-        <span class="icon">🖼️</span>
-        <span class="label">Add Images</span>
+      <div class="add-content-group">
+        <button id="addContentBtn" type="button" class="tool-btn" title="Add Content">
+          <span class="icon">🧩</span>
+          <span class="label">Add Item</span>
+        </button>
         <input id="imageInput" type="file" accept="image/*" multiple hidden>
-      </label>
-
-      <label class="tool-btn input-btn" title="Text item content">
-        <span class="icon">🅰️</span>
-        <input id="newTextItem" placeholder="Add text item" type="text" />
-      </label>
+        <div id="addContentMenu" class="add-content-menu" role="menu" aria-hidden="true">
+          <div class="add-content-buttons">
+            <button id="addImageOptionBtn" type="button" class="add-content-option">
+              <span class="icon">🖼️</span>
+              <span>Images</span>
+            </button>
+            <button id="confirmItemBtn" type="button" class="add-content-option">
+              <span class="icon">🅰️</span>
+              <span>Text</span>
+            </button>
+          </div>
+          <input id="menuItemText" type="text" placeholder="Item text" class="add-content-input">
+        </div>
+      </div>
     </div>
 
     <div class="toolbar-right">
-      <button id="exportPNG" type="button" class="tool-btn" title="Export PNG"><span class="icon">💾</span><span class="label">PNG</span></button>
-      <button id="exportJSON" type="button" class="tool-btn" title="Export JSON"><span class="icon">💾</span><span class="label">JSON</span></button>
+      <div class="export-import-group">
+        <button id="exportBtn" type="button" class="tool-btn" title="Export"><span class="icon">💾</span><span class="label">Export</span></button>
+        <button id="importBtn" type="button" class="tool-btn" title="Import JSON"><span class="icon">📥</span><span class="label">Import</span></button>
+        <input id="importInput" type="file" accept="application/json" hidden>
+        <div id="exportMenu" class="export-menu" role="menu" aria-hidden="true">
+          <button type="button" class="export-option" data-format="jpg">Export as JPG</button>
+          <button type="button" class="export-option" data-format="png">Export as PNG</button>
+          <button type="button" class="export-option" data-format="pdf">Export as PDF</button>
+          <div class="export-menu-divider"></div>
+          <button type="button" class="export-option" data-format="json">Export as JSON</button>
+        </div>
+      </div>
       <div class="toolbar-separator" aria-hidden="true"></div>
       <button id="poolToggleBtn" type="button" class="tool-btn" title="Toggle item pool" aria-expanded="false"><span class="icon">☰</span><span class="label">Pool</span></button>
     </div>
@@ -65,6 +86,8 @@
     </div>
   </div>
 
+</div>
+
   <template id="rowTemplate">
     <div class="row">
       <div class="row-header">
@@ -73,7 +96,7 @@
         </div>
         <div class="row-controls">
           <input type="color" class="row-color" aria-label="Row color" />
-          <button class="remove-row" title="Remove row">✕</button>
+          <button class="remove-row" title="Remove row" aria-label="Remove row">🗑️</button>
         </div>
       </div>
       <div class="row-dropzone" draggable="false"></div>

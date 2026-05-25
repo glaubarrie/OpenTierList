@@ -2,7 +2,7 @@
   "name": "opentl",
   "productName": "OpenTL",
   "version": "0.1.0",
-  "description": "OpenTL — Tierlist Maker desktop app",
+  "description": "Open-source tool for custom tier list creation.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
