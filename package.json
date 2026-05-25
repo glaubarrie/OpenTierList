@@ -1,0 +1,26 @@
+{
+  "name": "opentl",
+  "productName": "OpenTL",
+  "version": "0.1.0",
+  "description": "OpenTL — Tierlist Maker desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.opentl.app",
+    "files": ["**/*"],
+    "win": {
+      "icon": "logo.ico",
+      "target": ["nsis"]
+    }
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1"
+  },
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}

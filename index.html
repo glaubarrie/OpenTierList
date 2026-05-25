@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenTL</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toolbar" class="toolbar-modern">
+    <div class="toolbar-left">
+      <button id="addRowBtn" type="button" class="tool-btn" title="Add Row">
+        <span class="icon">➕</span>
+        <span class="label">Add Row</span>
+      </button>
+
+      <label class="tool-btn input-btn">
+        <span class="icon">✏️</span>
+        <input id="newRowLabel" placeholder="Row label" type="text" />
+      </label>
+
+      <label class="tool-btn color-btn" title="Row color">
+        <span class="icon">🎨</span>
+        <input type="color" id="newRowColor" value="#333333" title="Row color" />
+      </label>
+
+      <div class="toolbar-separator" aria-hidden="true"></div>
+
+      <label class="tool-btn" title="Add Images">
+        <span class="icon">🖼️</span>
+        <span class="label">Add Images</span>
+        <input id="imageInput" type="file" accept="image/*" multiple hidden>
+      </label>
+
+      <label class="tool-btn input-btn" title="Text item content">
+        <span class="icon">🅰️</span>
+        <input id="newTextItem" placeholder="Add text item" type="text" />
+      </label>
+    </div>
+
+    <div class="toolbar-right">
+      <button id="exportPNG" type="button" class="tool-btn" title="Export PNG"><span class="icon">💾</span><span class="label">PNG</span></button>
+      <button id="exportJSON" type="button" class="tool-btn" title="Export JSON"><span class="icon">💾</span><span class="label">JSON</span></button>
+      <div class="toolbar-separator" aria-hidden="true"></div>
+      <button id="poolToggleBtn" type="button" class="tool-btn" title="Toggle item pool" aria-expanded="false"><span class="icon">☰</span><span class="label">Pool</span></button>
+    </div>
+  </div>
+
+  <div id="appBody" class="app-body">
+    <div id="tierArea" class="tier-area">
+      <!-- rows appended here -->
+    </div>
+
+    <div id="itemPoolWrapper" class="item-pool-wrapper collapsed">
+      <aside id="itemPool" class="item-pool" aria-label="Item pool">
+        <div class="pool-top">
+          <div>
+            <h2>Item Pool</h2>
+            <p>New items load here first before moving them into tiers.</p>
+          </div>
+        </div>
+        <div id="poolContent" class="pool-content" aria-label="Item pool content"></div>
+      </aside>
+    </div>
+  </div>
+
+  <template id="rowTemplate">
+    <div class="row">
+      <div class="row-header">
+        <div class="row-title">
+          <input class="row-label" />
+        </div>
+        <div class="row-controls">
+          <input type="color" class="row-color" aria-label="Row color" />
+          <button class="remove-row" title="Remove row">✕</button>
+        </div>
+      </div>
+      <div class="row-dropzone" draggable="false"></div>
+    </div>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
