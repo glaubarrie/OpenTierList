@@ -1,5 +1,5 @@
 # OpenTierList
-Comprehensive open-source tool for custom tier list creation.
+_Comprehensive open-source tool for custom tier list creation._
 
 
 **🚀Features:**
