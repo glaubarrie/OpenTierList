@@ -9,7 +9,8 @@ _Comprehensive open-source tool for custom tier list creation._
 - can be run as a local program or website
 
 **🔐Privacy:**
-- runs fully locally on your PC - no Internet required
+- uses the qobuz-connect api
+- the service itself does not touch or look at you data
 
 **🫂Credits**
-- https://www.electronjs.org/
+- github.com/leolobato/qobuz-proxy (inspiration)
